@@ -1,0 +1,35 @@
+Notice	: Detecting System...
+Notice	: No virtualized environment detected.
+Notice	: Linux Distribution: Ubuntu
+Notice	: Detection complete.
+Warning : Unable to detect java version! Java may not be installed or may be outdated.
+Error	: McMyAdmin was not shut down properly!
+Error	: To avoid potential data loss, please perform /quit on this console.
+Error	: Startup will resume in 5 seconds...
+Notice	: Starting McMyAdmin Personal v2.7.0.2
+Notice	: Checking for updates...
+Notice	: Checking for Minecraft Server updates...
+Notice	: Starting webserver...
+Notice	: McMyAdmin has started and is ready for use.
+Notice	: Server jar hash is d38e7271-d0fb-d1ac-394b-f3ade2649a5c
+Notice	: Starting Minecraft Server...
+Console	: [22:43:27] [Server thread/INFO]: Starting minecraft server version 1.12.2
+Console	: [22:43:27] [Server thread/INFO]: Loading properties
+Console	: [22:43:27] [Server thread/INFO]: Default game type: SURVIVAL
+Console	: [22:43:27] [Server thread/INFO]: Generating keypair
+Console	: [22:43:28] [Server thread/INFO]: Starting Minecraft server on *:25565
+Console	: [22:43:28] [Server thread/INFO]: Using epoll channel type
+Console	: [22:43:29] [Server thread/INFO]: Preparing level "world"
+Console	: [22:43:30] [Server thread/INFO]: Loaded 488 advancements
+Console	: [22:43:31] [Server thread/INFO]: Preparing start region for level 0
+Console	: [22:43:33] [Server thread/INFO]: Preparing spawn area: 0%
+Console	: [22:43:34] [Server thread/INFO]: Preparing spawn area: 4%
+Console	: [22:43:35] [Server thread/INFO]: Preparing spawn area: 18%
+Console	: [22:43:36] [Server thread/INFO]: Preparing spawn area: 53%
+Console	: [22:43:37] [Server thread/INFO]: Done (8.186s)! For help, type "help" or "?"
+Console	: [22:45:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [22:45:00] [Server thread/INFO]: Saving...
+Console	: [22:45:00] [Server thread/INFO]: Saved the world
+Console	: [22:45:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [22:51:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [22:51:00] [Server thread/INFO]: 

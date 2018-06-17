@@ -1,0 +1,6 @@
+5/28/2018 1:38:36 PM
+The socket is not connected
+  at System.Net.Sockets.Socket.get_RemoteEndPoint () [0x00000] in <filename unknown>:0 
+  at HttpServer.HttpListener.​‬⁭‮​⁪‏⁬​⁪‍​​‪⁫​⁮‫‫‭‫‍​‭‭⁭‪‏⁭‬‪​⁬⁪‫‎‏⁬‭‮ (System.Net.Sockets.Socket ) [0x00000] in <filename unknown>:0 
+  at HttpServer.HttpListener.OnSocketAccepted (IAsyncResult ar) [0x00000] in <filename unknown>:0 
+System

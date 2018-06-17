@@ -1,0 +1,6 @@
+rClone:
+  environment:
+    SYNC_DESTINATION: sync_destination_from_.rclone.conf
+  volumes:
+    - '/path_for_rclone.conf:/config'
+    - '/path_backup:/data'

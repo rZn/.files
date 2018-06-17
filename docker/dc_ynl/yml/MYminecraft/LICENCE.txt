@@ -1,0 +1,85 @@
+﻿McMyAdmin Licence
+
+END-USER LICENSE AGREEMENT FOR McMyAdmin IMPORTANT PLEASE READ THE TERMS 
+AND CONDITIONS OF THIS LICENSE AGREEMENT CAREFULLY BEFORE CONTINUING WITH 
+THIS PROGRAM INSTALL
+
+1. GRANT OF LICENCE
+McMyAdmin (refered to as the SOFTWARE PRODUCT) is licenced as followed:
+
+The SOFTWARE PRODUCT is free to use for personal use. Personal use is 
+specified as not being used for commercial purposes. The definition of
+commercial use includes but is not limited to:
+
+	- Bundling McMyAdmin with hosted server packages.
+	- Selling or distributing copies of McMyAdmin itself.
+	
+Commerical use of McMyAdmin (E.g. bundling with hosted server packages) is
+subject to a further agreement made with the author, which may supercede the
+terms of this licence. 
+
+You may make copies of the SOFTWARE PRODUCT as may be necessary for backup 
+and archival purposes.
+
+2. DESCRIPTION OF OTHER RIGHTS AND LIMITATIONS.
+(a) Maintenance of Copyright Notices.
+You must not remove or alter any copyright notices on any and all copies of the 
+SOFTWARE PRODUCT.
+
+(b) Distribution.
+You may not distribute registered copies of the SOFTWARE PRODUCT to third parties. 
+This also includes distribution of a purchased licence key. A purchased licence key
+must be in no way accessible to any parties other than the purchasing individual or
+agents acting on behalf of a organisation who purchased a licence. This does not
+prohibit you from using a purchased key on a remote purchased/rented server.
+
+(c) Prohibition on Reverse Engineering, Decompilation, and Disassembly.
+You may not reverse engineer, decompile, or disassemble the SOFTWARE PRODUCT, except 
+and only to the extent that such activity is expressly permitted by applicable 
+law notwithstanding this limitation. 
+
+(d) Rental.
+You may not rent, lease, or lend the SOFTWARE PRODUCT except under terms of
+a commercial contract negotiated with the author.
+
+(e) Support Services.
+The author may provide you with support services related to the SOFTWARE PRODUCT 
+("Support Services"). Any supplemental software code provided to you as part of
+the Support Services shall be considered part of the SOFTWARE PRODUCT and subject 
+to the terms and conditions of this EULA. 
+ 
+(f) Compliance with Applicable Laws.
+You must comply with all applicable laws regarding use of the SOFTWARE PRODUCT.
+
+3. TERMINATION 
+Without prejudice to any other rights, The author may terminate this EULA if you 
+fail to comply with the terms and conditions of this EULA. In such event, you must 
+destroy all copies of the SOFTWARE PRODUCT in your possession.
+
+4. NO WARRANTIES
+The author expressly disclaims any warranty for the SOFTWARE PRODUCT. 
+The SOFTWARE PRODUCT is provided 'As Is' without any express or implied warranty 
+of any kind, including but not limited to any warranties of merchantability, 
+noninfringement, or fitness of a particular purpose. The author does 
+not warrant or assume responsibility for the accuracy or completeness of any 
+information, text, graphics, links or other items contained within the SOFTWARE 
+PRODUCT. The author makes no warranties respecting any harm that may 
+be caused by the transmission of a computer virus, worm, time bomb, logic bomb, 
+or other such computer program. The author further expressly disclaims 
+any warranty or representation to Authorized Users or to any third party.
+
+5. LIMITATION OF LIABILITY
+In no event shall the author be liable for any damages (including, without
+limitation, lost profits, business interruption, or lost information) rising 
+out of 'Authorized Users' use of or inability to use the SOFTWARE PRODUCT, 
+even if the author has been advised of the possibility of such damages. 
+In no event will the author be liable for loss of data or for indirect, 
+special, incidental, consequential (including lost profit), or other damages 
+based in contract, tort or otherwise. The author shall have no liability with 
+respect to the content of the SOFTWARE PRODUCT or any part thereof, including 
+but not limited to errors or omissions contained therein, libel, infringements 
+of rights of publicity, privacy, trademark rights, business interruption, 
+personal injury, loss of privacy,moral rights or the disclosure of confidential 
+information.
+
+McMyAdmin ©2010-2012 Michael Biggins

@@ -1,0 +1,31 @@
+Notice	: Detecting System...
+Notice	: No virtualized environment detected.
+Notice	: Linux Distribution: Ubuntu
+Notice	: Detection complete.
+Warning : Unable to detect java version! Java may not be installed or may be outdated.
+Error	: McMyAdmin was not shut down properly!
+Error	: To avoid potential data loss, please perform /quit on this console.
+Error	: Startup will resume in 5 seconds...
+Notice	: Starting McMyAdmin Personal v2.7.0.2
+Notice	: Checking for updates...
+Notice	: Starting webserver...
+Notice	: Checking for Minecraft Server updates...
+Notice	: McMyAdmin has started and is ready for use.
+Notice	: Server jar hash is d38e7271-d0fb-d1ac-394b-f3ade2649a5c
+Notice	: Starting Minecraft Server...
+Console	: [21:20:50] [Server thread/INFO]: Starting minecraft server version 1.12.2
+Console	: [21:20:50] [Server thread/INFO]: Loading properties
+Console	: [21:20:50] [Server thread/INFO]: Default game type: SURVIVAL
+Console	: [21:20:50] [Server thread/INFO]: Generating keypair
+Console	: [21:20:50] [Server thread/INFO]: Starting Minecraft server on *:25565
+Console	: [21:20:51] [Server thread/INFO]: Using epoll channel type
+Console	: [21:20:51] [Server thread/INFO]: Preparing level "world"
+Console	: [21:20:52] [Server thread/INFO]: Loaded 488 advancements
+Console	: [21:20:52] [Server thread/INFO]: Preparing start region for level 0
+Console	: [21:20:55] [Server thread/INFO]: Preparing spawn area: 0%
+Console	: [21:20:56] [Server thread/INFO]: Preparing spawn area: 6%
+Console	: [21:20:57] [Server thread/INFO]: Preparing spawn area: 30%
+Console	: [21:20:57] [Server thread/WARN]: Keeping entity minecraft:skeleton that already exists with UUID a0d8fab1-8d9a-4e93-8810-a9b8dcec051b
+Console	: [21:20:58] [Server thread/INFO]: Preparing spawn area: 67%
+Console	: [21:20:58] [Server thread/WARN]: Keeping entity minecraft:wolf that already exists with UUID 0c0051a8-17ba-4dac-a7cd-da9eb1a0208d
+Console	: [21:20:58] [Server thread/INFO]: Done (7.305s)! For help, type "help" or "?"

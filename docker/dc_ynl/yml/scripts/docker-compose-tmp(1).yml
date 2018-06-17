@@ -1,0 +1,43 @@
+version: "3"
+services:
+
+
+  nextcloud:
+    image: nextcloud
+    links:
+    - 'mariadb:mysql'
+    ports:
+      - '4321:80'
+    volumes:
+      - '/home/rzn/docker/nextcloud:/var/www/html'
+      - '/home/rzn/docker/nextcloud/apps:/var/www/html/custom_apps'
+      - '/home/rzn/docker/nextcloud/config:/var/www/html/config'
+      - '/media/stach1/srv/nextcloud/data:/var/www/html/data'
+      - '/home/rzn/docker/nextcloud/themes:/var/www/html/themes'
+      environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=80"
+      - "traefik.frontend.rule=Host:moln.rzn.se"
+      
+      
+      
+    rclone:
+    image:bcardiff/rclone
+    tty: true
+    rm: true
+    container_name: rclone
+    restart: always
+    volumes:
+      - '/home/rzn/docker/rclone/config:/config'
+      
+   
+
+      
+      
+      
+
+

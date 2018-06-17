@@ -1,0 +1,133 @@
+Notice	: Detecting System...
+Notice	: No virtualized environment detected.
+Notice	: Linux Distribution: Ubuntu
+Notice	: Detection complete.
+Warning : Unable to detect java version! Java may not be installed or may be outdated.
+Error	: McMyAdmin was not shut down properly!
+Error	: To avoid potential data loss, please perform /quit on this console.
+Error	: Startup will resume in 5 seconds...
+Notice	: Starting McMyAdmin Personal v2.7.0.2
+Notice	: Checking for updates...
+Notice	: Checking for Minecraft Server updates...
+Notice	: Starting webserver...
+Notice	: McMyAdmin has started and is ready for use.
+Notice	: Server jar hash is d38e7271-d0fb-d1ac-394b-f3ade2649a5c
+Notice	: Starting Minecraft Server...
+Console	: [21:43:09] [Server thread/INFO]: Starting minecraft server version 1.12.2
+Console	: [21:43:09] [Server thread/INFO]: Loading properties
+Console	: [21:43:10] [Server thread/INFO]: Default game type: SURVIVAL
+Console	: [21:43:10] [Server thread/INFO]: Generating keypair
+Console	: [21:43:11] [Server thread/INFO]: Starting Minecraft server on *:25565
+Console	: [21:43:11] [Server thread/INFO]: Using epoll channel type
+Console	: [21:43:12] [Server thread/INFO]: Preparing level "world"
+Console	: [21:43:14] [Server thread/INFO]: Loaded 488 advancements
+Console	: [21:43:15] [Server thread/INFO]: Preparing start region for level 0
+Console	: [21:43:18] [Server thread/INFO]: Preparing spawn area: 0%
+Console	: [21:43:19] [Server thread/INFO]: Preparing spawn area: 3%
+Console	: [21:43:20] [Server thread/INFO]: Preparing spawn area: 9%
+Console	: [21:43:21] [Server thread/INFO]: Preparing spawn area: 18%
+Console	: [21:43:22] [Server thread/INFO]: Preparing spawn area: 29%
+Console	: [21:43:23] [Server thread/WARN]: Keeping entity minecraft:skeleton that already exists with UUID a0d8fab1-8d9a-4e93-8810-a9b8dcec051b
+Console	: [21:43:24] [Server thread/INFO]: Preparing spawn area: 43%
+Console	: [21:43:25] [Server thread/INFO]: Preparing spawn area: 67%
+Console	: [21:43:25] [Server thread/WARN]: Keeping entity minecraft:wolf that already exists with UUID 0c0051a8-17ba-4dac-a7cd-da9eb1a0208d
+Console	: [21:43:26] [Server thread/INFO]: Done (13.943s)! For help, type "help" or "?"
+Console	: [21:43:30] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2004ms behind, skipping 40 tick(s)
+Console	: [21:45:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [21:45:00] [Server thread/INFO]: Saving...
+Console	: [21:45:00] [Server thread/INFO]: Saved the world
+Console	: [21:45:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [21:51:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [21:51:00] [Server thread/INFO]: 
+Console	: [21:57:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [21:57:00] [Server thread/INFO]: 
+Console	: [22:00:00] [Server thread/INFO]: [Server] This server is running McMyAdmin Personal v2.7.0.2
+Console	: [22:00:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [22:00:00] [Server thread/INFO]: Saving...
+Console	: [22:00:00] [Server thread/INFO]: Saved the world
+Console	: [22:00:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [22:06:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [22:06:00] [Server thread/INFO]: 
+Console	: [22:12:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [22:12:00] [Server thread/INFO]: 
+Console	: [22:15:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [22:15:00] [Server thread/INFO]: Saving...
+Console	: [22:15:00] [Server thread/INFO]: Saved the world
+Console	: [22:15:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [22:21:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [22:21:00] [Server thread/INFO]: 
+Console	: [22:27:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [22:27:00] [Server thread/INFO]: 
+Console	: [22:30:00] [Server thread/INFO]: [Server] This server is running McMyAdmin Personal v2.7.0.2
+Console	: [22:30:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [22:30:00] [Server thread/INFO]: Saving...
+Console	: [22:30:00] [Server thread/INFO]: Saved the world
+Console	: [22:30:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [22:36:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [22:36:00] [Server thread/INFO]: 
+Console	: [22:42:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [22:42:00] [Server thread/INFO]: 
+Console	: [22:45:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [22:45:00] [Server thread/INFO]: Saving...
+Console	: [22:45:00] [Server thread/INFO]: Saved the world
+Console	: [22:45:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [22:51:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [22:51:00] [Server thread/INFO]: 
+Console	: [22:57:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [22:57:00] [Server thread/INFO]: 
+Console	: [23:00:00] [Server thread/INFO]: [Server] This server is running McMyAdmin Personal v2.7.0.2
+Console	: [23:00:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [23:00:00] [Server thread/INFO]: Saving...
+Console	: [23:00:00] [Server thread/INFO]: Saved the world
+Console	: [23:00:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [23:06:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [23:06:00] [Server thread/INFO]: 
+Console	: [23:12:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [23:12:00] [Server thread/INFO]: 
+Console	: [23:15:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [23:15:00] [Server thread/INFO]: Saving...
+Console	: [23:15:00] [Server thread/INFO]: Saved the world
+Console	: [23:15:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [23:21:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [23:21:00] [Server thread/INFO]: 
+Console	: [23:27:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [23:27:00] [Server thread/INFO]: 
+Console	: [23:30:00] [Server thread/INFO]: [Server] This server is running McMyAdmin Personal v2.7.0.2
+Console	: [23:30:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [23:30:00] [Server thread/INFO]: Saving...
+Console	: [23:30:00] [Server thread/INFO]: Saved the world
+Console	: [23:30:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [23:36:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [23:36:00] [Server thread/INFO]: 
+Console	: [23:42:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [23:42:00] [Server thread/INFO]: 
+Console	: [23:45:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [23:45:00] [Server thread/INFO]: Saving...
+Console	: [23:45:00] [Server thread/INFO]: Saved the world
+Console	: [23:45:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [23:51:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [23:51:00] [Server thread/INFO]: 
+Console	: [23:57:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [23:57:00] [Server thread/INFO]: 
+Console	: [00:00:00] [Server thread/INFO]: [Server] This server is running McMyAdmin Personal v2.7.0.2
+Console	: [00:00:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [00:00:00] [Server thread/INFO]: Saving...
+Console	: [00:00:00] [Server thread/INFO]: Saved the world
+Console	: [00:00:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [00:06:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [00:06:00] [Server thread/INFO]: 
+Console	: [00:12:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [00:12:00] [Server thread/INFO]: 
+Console	: [00:15:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [00:15:00] [Server thread/INFO]: Saving...
+Console	: [00:15:00] [Server thread/INFO]: Saved the world
+Console	: [00:15:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [00:21:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [00:21:00] [Server thread/INFO]: 
+Console	: [00:27:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [00:27:00] [Server thread/INFO]: 
+Console	: [00:30:00] [Server thread/INFO]: [Server] This server is running McMyAdmin Personal v2.7.0.2
+Console	: [00:30:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [00:30:00] [Server thread/INFO]: Saving...
+Console	: [00:30:00] [Server thread/INFO]: Saved the world
+Console	: [00:30:00] [Server thread/INFO]: [Server] Save Complete

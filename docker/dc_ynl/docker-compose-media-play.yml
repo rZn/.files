@@ -1,0 +1,13 @@
+cloud-media-scripts:
+  volumes:
+    - '/media:/local-media:shared'
+    - '/mnt/external/media:/local-decrypt:shared'
+    - '/configurations:/config'
+    - '/mnt/external/plexdrive:/chunks'
+    - '/logs:/log'
+  privileged: true
+  cap_add:
+    - MKNOD
+    - SYS_ADMIN
+  devices:
+    - /dev/fuse

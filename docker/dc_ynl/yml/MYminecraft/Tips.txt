@@ -1,0 +1,13 @@
+﻿You can use the /lookup command in game to find the ID of an object by its name (or partial name). E.g. "/lookup wood" will show you a list of all wooden objects.
+The /giveme and /giveto commands can use the full name of an object, and even allow multiplications in the quantity! E.g. "/giveme Wooden Stairs 4x4" will give you 16 wooden stairs.
+The original internal project name for McMyAdmin was actually "MineManage" before it got changed prior to its public release.
+McMyAdmin is written entirely in pure C#, and is compatible with Windows, Mac, Linux, BSD and Solaris.
+If you place documents or files in the "Public" folder, you can access them via the web interface without logging in. Making it an ideal place to put map output or even a small personal site for your server!
+You can do "/serverstats" in game to get basic server information in-game.
+The "/quit" command in the McMyAdmin text console will perform a safe shutdown of the Minecraft game, before cleanly stopping McMyAdmin.
+You can use /help [command] in-game to get command specific help. Or just do /help to get a list of commands.
+If an McMyAdmin command conflicts with one being used by an Addon or Plugin, you can use ! instead of / to enter the command. However other users on the server will see your command.
+The -nostart command line argument prevents McMyAdmin from immediately starting the Minecraft server when it starts up.
+If you set loglevel=0 in your McMyAdmin.conf, then extra error details will be written into McMyAdmin-Errors.log.
+If you're running lots of servers, you can tweak the "scheduleoffset" setting in your McMyAdmin.conf to stop all your servers trying to perform actions at the same time.
+Stuck on a problem? Check out the McMyAdmin Wiki! http://wiki.phonicuk.com/

@@ -1,0 +1,32 @@
+Notice	: Detecting System...
+Notice	: No virtualized environment detected.
+Notice	: Linux Distribution: Ubuntu
+Notice	: Detection complete.
+Warning : Unable to detect java version! Java may not be installed or may be outdated.
+Error	: McMyAdmin was not shut down properly!
+Error	: To avoid potential data loss, please perform /quit on this console.
+Error	: Startup will resume in 5 seconds...
+Notice	: Starting McMyAdmin Personal v2.7.0.2
+Notice	: Checking for updates...
+Notice	: Checking for Minecraft Server updates...
+Notice	: Starting webserver...
+Notice	: McMyAdmin has started and is ready for use.
+Notice	: Server jar hash is d38e7271-d0fb-d1ac-394b-f3ade2649a5c
+Notice	: Starting Minecraft Server...
+Console	: [11:05:28] [Server thread/INFO]: Starting minecraft server version 1.12.2
+Console	: [11:05:28] [Server thread/INFO]: Loading properties
+Console	: [11:05:28] [Server thread/INFO]: Default game type: SURVIVAL
+Console	: [11:05:28] [Server thread/INFO]: Generating keypair
+Console	: [11:05:30] [Server thread/INFO]: Starting Minecraft server on *:25565
+Console	: [11:05:30] [Server thread/INFO]: Using epoll channel type
+Console	: [11:05:30] [Server thread/INFO]: Preparing level "world"
+Console	: [11:05:33] [Server thread/INFO]: Loaded 488 advancements
+Console	: [11:05:33] [Server thread/INFO]: Preparing start region for level 0
+Console	: [11:05:37] [Server thread/INFO]: Preparing spawn area: 0%
+Console	: [11:05:38] [Server thread/INFO]: Preparing spawn area: 3%
+Console	: [11:05:39] [Server thread/INFO]: Preparing spawn area: 12%
+Console	: [11:05:40] [Server thread/INFO]: Preparing spawn area: 27%
+Console	: [11:05:41] [Server thread/INFO]: Preparing spawn area: 50%
+Console	: [11:05:42] [Server thread/INFO]: Preparing spawn area: 75%
+Console	: [11:05:43] [Server thread/INFO]: Done (12.209s)! For help, type "help" or "?"
+Console	: [11:05:46] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2088ms behind, skipping 41 tick(s)

@@ -1,0 +1,52 @@
+Notice	: Detecting System...
+Notice	: No virtualized environment detected.
+Notice	: Linux Distribution: Ubuntu
+Notice	: Detection complete.
+Warning : Unable to detect java version! Java may not be installed or may be outdated.
+Error	: McMyAdmin was not shut down properly!
+Error	: To avoid potential data loss, please perform /quit on this console.
+Error	: Startup will resume in 5 seconds...
+Notice	: Starting McMyAdmin Personal v2.7.0.2
+Notice	: Checking for updates...
+Notice	: Checking for Minecraft Server updates...
+Notice	: Starting webserver...
+Notice	: McMyAdmin has started and is ready for use.
+Notice	: Server jar hash is d38e7271-d0fb-d1ac-394b-f3ade2649a5c
+Notice	: Starting Minecraft Server...
+Console	: [22:16:57] [Server thread/INFO]: Starting minecraft server version 1.12.2
+Console	: [22:16:57] [Server thread/INFO]: Loading properties
+Console	: [22:16:57] [Server thread/INFO]: Default game type: SURVIVAL
+Console	: [22:16:57] [Server thread/INFO]: Generating keypair
+Console	: [22:16:57] [Server thread/INFO]: Starting Minecraft server on *:25565
+Console	: [22:16:58] [Server thread/INFO]: Using epoll channel type
+Console	: [22:16:58] [Server thread/INFO]: Preparing level "world"
+Console	: [22:17:00] [Server thread/INFO]: Loaded 488 advancements
+Console	: [22:17:00] [Server thread/INFO]: Preparing start region for level 0
+Console	: [22:17:02] [Server thread/INFO]: Preparing spawn area: 0%
+Console	: [22:17:03] [Server thread/INFO]: Preparing spawn area: 11%
+Console	: [22:17:04] [Server thread/INFO]: Preparing spawn area: 28%
+Console	: [22:17:05] [Server thread/INFO]: Preparing spawn area: 54%
+Console	: [22:17:06] [Server thread/INFO]: Preparing spawn area: 80%
+Console	: [22:17:06] [Server thread/INFO]: Done (7.717s)! For help, type "help" or "?"
+Console	: [22:17:09] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2041ms behind, skipping 40 tick(s)
+Console	: [22:23:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [22:23:00] [Server thread/INFO]: 
+Console	: [22:29:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [22:29:00] [Server thread/INFO]: 
+Console	: [22:30:00] [Server thread/INFO]: [Server] This server is running McMyAdmin Personal v2.7.0.2
+Console	: [22:30:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [22:30:00] [Server thread/INFO]: Saving...
+Console	: [22:30:00] [Server thread/INFO]: Saved the world
+Console	: [22:30:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [22:36:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [22:36:00] [Server thread/INFO]: 
+Console	: [22:42:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [22:42:00] [Server thread/INFO]: 
+Console	: [22:45:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [22:45:00] [Server thread/INFO]: Saving...
+Console	: [22:45:00] [Server thread/INFO]: Saved the world
+Console	: [22:45:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [22:51:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [22:51:00] [Server thread/INFO]: 
+Console	: [22:57:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [22:57:00] [Server thread/INFO]: 

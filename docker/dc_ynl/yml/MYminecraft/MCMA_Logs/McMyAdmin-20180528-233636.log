@@ -1,0 +1,31 @@
+Notice	: Detecting System...
+Notice	: No virtualized environment detected.
+Notice	: Linux Distribution: Ubuntu
+Notice	: Detection complete.
+Warning : Unable to detect java version! Java may not be installed or may be outdated.
+Error	: McMyAdmin was not shut down properly!
+Error	: To avoid potential data loss, please perform /quit on this console.
+Error	: Startup will resume in 5 seconds...
+Notice	: Starting McMyAdmin Personal v2.7.0.2
+Notice	: Checking for updates...
+Notice	: Checking for Minecraft Server updates...
+Notice	: Starting webserver...
+Notice	: McMyAdmin has started and is ready for use.
+Notice	: Server jar hash is d38e7271-d0fb-d1ac-394b-f3ade2649a5c
+Notice	: Starting Minecraft Server...
+Console	: [23:37:05] [Server thread/INFO]: Starting minecraft server version 1.12.2
+Console	: [23:37:05] [Server thread/INFO]: Loading properties
+Console	: [23:37:05] [Server thread/INFO]: Default game type: SURVIVAL
+Console	: [23:37:05] [Server thread/INFO]: Generating keypair
+Console	: [23:37:07] [Server thread/INFO]: Starting Minecraft server on *:25565
+Console	: [23:37:07] [Server thread/INFO]: Using epoll channel type
+Console	: [23:37:08] [Server thread/INFO]: Preparing level "world"
+Console	: [23:37:09] [Server thread/INFO]: Loaded 488 advancements
+Console	: [23:37:09] [Server thread/INFO]: Preparing start region for level 0
+Console	: [23:37:12] [Server thread/INFO]: Preparing spawn area: 0%
+Console	: [23:37:13] [Server thread/INFO]: Preparing spawn area: 10%
+Console	: [23:37:14] [Server thread/INFO]: Preparing spawn area: 32%
+Console	: [23:37:15] [Server thread/INFO]: Preparing spawn area: 55%
+Console	: [23:37:16] [Server thread/INFO]: Preparing spawn area: 96%
+Console	: [23:37:16] [Server thread/INFO]: Done (8.562s)! For help, type "help" or "?"
+Console	: [23:37:19] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2067ms behind, skipping 41 tick(s)

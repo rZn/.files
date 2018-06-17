@@ -1,0 +1,85 @@
+version: '2'
+
+services:
+#  proxy:
+#    container_name: 'traefik'
+#    image: traefik:1.5
+#    restart: always
+#    ports:
+#      - '8600:80'
+#    networks:
+#      - proxy
+#    volumes:
+#      - '/var/run/docker.sock:/var/run/docker.sock'
+#      - './traefik.toml:/traefik.toml'
+
+  portainer:
+    image: portainer/portainer:latest
+    container_name: portainer-test
+    restart: always
+    ports:
+      - '9900:9900'
+    volumes:
+      - '/mnt/data/portainer:/data'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+
+  media:
+    container_name: 'cmsmedia-test'
+    image: madslundt/cloud-media-scripts
+    restart: always
+    privileged: true
+    devices:
+      - /dev/fuse
+    cap_add:
+      - CAP_MKNOD
+      - CAP_SYS_ADMIN
+    environment:
+      ENCRYPT_MEDIA: 0
+      PUID: 1000
+      PGID: 1000
+    volumes:
+      - '/media/unionfs:/local-media'
+      - '/mnt/data/media/local:/local-decrypt'
+      - '/mnt/data/media/config:/config'
+      - '/mnt/data/media/chunks:/chunks'
+      - '/mnt/data/media/db:/data/db'
+      - '/mnt/data/media/logs:/log'
+
+
+  jackett:
+    container_name: 'jacket-test'
+    image: linuxserver/jackett:latest
+    restart: always
+    ports:
+      - '9177:9177'
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: 'Europe/Copenhagen'
+    volumes:
+      - '/mnt/data/jackett/config:/config'
+      - '/mnt/data/jackett/blackhole:/downloads'
+
+  plex:
+    container_name: 'plex-test'
+    image: linuxserver/plex:latest
+    restart: always
+    depends_on:
+      - media
+    ports:
+      - '34400:34400'
+      - '34400:34400/udp'
+      - '34469:34469'
+      - '34469:34469/udp'
+      - '5453:5453/udp'
+      - '1901:1901/udp'
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: 'Europe/Copenhagen'
+      VERSION: 'latest'
+    volumes:
+      - '/mnt/data/plex/config:/config'
+      - '/mnt/data/media/unionfs:/unionfs'
+      - '/mnt/data/plex/transcode:/transcode'
+    network_mode: 'host'

@@ -1,0 +1,51 @@
+version: "2"
+services:
+
+
+
+
+
+#Media Server - Plex
+  plexms:
+    container_name: plexms
+    restart: always
+    image: plexinc/pms-docker:beta
+    volumes:
+      - /home/rzn/docker/plexms:/config
+      - /media/red/plex_tmp:/transcode
+      - /media:/media
+      - /home/rzn/docker/certs:/certs
+    network_mode: host
+    environment:
+      - TZ=Europe/Stockholm
+      - HOSTNAME="Docker Plex"
+      - PLEX_CLAIM="claim-QMV7TN4GHYX5XLJSYMY4"
+      - PLEX_UID=${PUID}
+      - PLEX_GID=${PGID}
+      - ADVERTISE_IP="http://10.0.0.10:32400/"
+
+
+
+plex:
+    container_name: 'plex-test'
+    image: linuxserver/plex:latest
+    restart: always
+    depends_on:
+      - media
+    ports:
+      - '34400:34400'
+      - '34400:34400/udp'
+      - '34469:34469'
+      - '34469:34469/udp'
+      - '5453:5453/udp'
+      - '1901:1901/udp'
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: 'Europe/Copenhagen'
+      VERSION: 'latest'
+    volumes:
+      - '/mnt/data/plex/config:/config'
+      - '/mnt/data/media/unionfs:/unionfs'
+      - '/mnt/data/plex/transcode:/transcode'
+    network_mode: 'host'

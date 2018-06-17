@@ -1,0 +1,245 @@
+version: "2"
+services:
+
+
+
+
+
+#Media Server - Plex
+  plexms:
+    container_name: plexms
+    restart: always
+    image: plexinc/pms-docker:beta
+    volumes:
+      - /home/rzn/docker/plexms:/config
+      - /media/red/plex_tmp:/transcode
+      - /media:/media
+      - /home/rzn/docker/certs:/certs
+    network_mode: host
+    environment:
+      - TZ=Europe/Stockholm
+      - HOSTNAME="Docker Plex"
+      - PLEX_CLAIM="claim-QMV7TN4GHYX5XLJSYMY4"
+      - PLEX_UID=${PUID}
+      - PLEX_GID=${PGID}
+      - ADVERTISE_IP="http://10.0.0.10:32400/"
+      
+      #Transmission-VPN - Bittorrent Downloader with VPN
+#Check here for a whole list of settings that can be passed as environmental variables: https://github.com/haugene/docker-transmission-openvpn/blob/master/transmission/settings.tmpl
+  transmission-vpn:
+    container_name: transmission-vpn
+    image: haugene/transmission-openvpn
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    restart: always
+    ports:
+    - "9091:9091"
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /home/rzn/docker/transmission-vpn:/config
+      - /home/rzn/docker/certs:/certs
+      - /home/rzn/ttwatch:/data/watch
+      - /media/stach/down/completed:/data/completed
+      - /media/stach2/tmp/.laddar:/data/incomplete
+    environment:
+      - OPENVPN_PROVIDER=USENETSERVER
+      - OPENVPN_USERNAME=rznth4r
+      - OPENVPN_PASSWORD=ra75secharas
+      - OPENVPN_CONFIG="sel-a02" #optional specify a specific server
+      - OPENVPN_OPTS=--inactive 3600 --ping 10 --ping-exit 60
+      - LOCAL_NETWORK=10.0.0.0/24 #change to your home network
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+      - TRANSMISSION_RPC_AUTHENTICATION_REQUIRED=true
+      - TRANSMISSION_RPC_HOST_WHITELIST="*"
+      - TRANSMISSION_RPC_PASSWORD=charas
+      - TRANSMISSION_RPC_USERNAME=rZn
+      - TRANSMISSION_UMASK=002
+      
+      
+      
+      
+      
+      
+      ############## Bortagna
+      
+      
+      #NZBGet - Usenet (NZB) Downloader
+  nzbget:
+    image: "linuxserver/nzbget"
+    container_name: "nzbget"
+    volumes:
+      - /home/rzn/docker/nzbget:/config
+      - /media/stach/down:/downloads
+      - /home/rzn/docker/certs:/certs
+    ports:
+      - "6789:6789"
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+      
+      
+            
+  letsencrypt:
+    image: linuxserver/letsencrypt
+    container_name: le
+    ports:
+      - 443:443
+    volumes:
+      - /home/rzn/docker/letsencrypt/config:/config
+    restart:
+      always
+    depends_on:
+      - sabnzbd
+      - airsonic
+      - sonarr
+      - radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+      - EMAIL=rzn@rzn.se
+      - URL=rzn.se
+      - SUBDOMAINS=sub
+      - TZ=Europe/London 
+      - DHLEVEL=4096
+      
+      
+      rtorrentvpn:
+    image: binhex/arch-rtorrentvpn
+    container_name: rtorrentvpn
+    cap_add:
+      - NET_ADMIN
+    restart: always
+    ports:
+      - 9080:9080
+      - 9443:9443
+      - 8118:8118
+      - 3000:3000
+    volumes:
+      - /media/stach/down:/data
+      - /home/rzn/docker/rtorrent:/config
+      - /etc/localtime:/etc/localtime:ro 
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+      - VPN_ENABLED=no
+      - VPN_USER=rZnth4r
+      - VPN_PASS=ra75secharas
+      - VPN_PROV=custom
+      - STRICT_PORT_FORWARD=no
+      - ENABLE_PRIVOXY=no
+      - ENABLE_FLOOD=no
+      - ENABLE_AUTODL_IRSSI=yes
+      - LAN_NETWORK=10.0.0.0/24
+      - NAME_SERVERS=209.222.18.222,37.235.1.174,8.8.8.8,209.222.18.218,37.235.1.177,8.8.4.4
+      - DEBUG=false
+      - PHP_TZ=Europe/Stockholm
+      - UMASK=000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=9080"
+      - "traefik.frontend.rule=Host:rt.rzn.se"
+      
+      qbittorrent:
+    image: "linuxserver/qbittorrent"
+    container_name: "qbittorrent"
+    volumes:
+      - /home/rzn/docker/qbittorrent:/config
+      - /media/stach/down/completed:/downloads
+      - /home/rzn/docker/certs:/certs
+    ports:
+      - "2222:2222"
+      - "6881:6881"
+      - "6881:6881/udp"
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+      - UMASK_SET=002
+      - WEBUI_PORT=2222
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=2222"
+      - "traefik.frontend.rule=Host:qb.rzn.se"
+      
+      redis:
+    image: webhippie/redis:latest
+    container_name: redis
+    restart: always
+    environment:
+      - REDIS_DATABASES=1
+    healthcheck:
+      test: ["CMD", "/usr/bin/healthcheck"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - /home/rzn/docker/redis:/var/lib/redis
+      
+      
+  owncloud:
+    image: owncloud/server:latest
+    container_name: owncloud
+#${OWNCLOUD_VERSION}
+    restart: always
+    ports:
+      - 344:443
+      - 8076:80
+    links:
+      - mariadb
+    depends_on:
+      - mariadb
+      - redis
+    environment:
+      - OWNCLOUD_DOMAIN=10.0.0.10
+      - OWNCLOUD_DB_TYPE=mysql
+      - OWNCLOUD_DB_NAME=owncloud
+      - OWNCLOUD_DB_USERNAME=ownrzn
+      - OWNCLOUD_DB_PASSWORD=ra75se
+      - OWNCLOUD_DB_HOST=mariadb
+      - OWNCLOUD_ADMIN_USERNAME=rZn
+      - OWNCLOUD_ADMIN_PASSWORD=charas
+      - OWNCLOUD_UTF8MB4_ENABLED=true
+      - OWNCLOUD_REDIS_ENABLED=true
+      - OWNCLOUD_REDIS_HOST=redis
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    healthcheck:
+      test: ["CMD", "/usr/bin/healthcheck"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - /media/stach1/srv/owncloud:/mnt/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=443"
+      - "traefik.frontend.rule=Host:own.rzn.se"
+
+      
+
+      
+      
+      
+      
+      #Watchtower - Automatic Update of Containers/Apps
+  watchtower:
+    container_name: watchtower
+    restart: always
+    image: v2tec/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --schedule "0 0 4 * * *" --cleanup
+      

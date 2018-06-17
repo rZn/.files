@@ -1,0 +1,176 @@
+docker create --name nzbget --restart=always -p 6789:6789 -e PUID=1000 -e PGID=1000 -e TZ=Europe/Stockholm -v /home/rzn/docker/nzbget/config:/config -v /media/stach/down:/downloads linuxserver/nzbget
+
+sudo docker create --name=organizr --name=organizr --restart=always -v /home/rzn/docker/organizr/config:/config -e PGID=1000 -e PUID=1000 -p 8899:80 lsiocommunity/organizr
+
+sudo docker run -d -p 9000:9000 --restart always -v /var/run/docker.sock:/var/run/docker.sock -v /opt/portainer:/data portainer/portainer
+
+docker create --name sonarr --restart always -p 8989:8989 -e PUID=1000 -e PGID=1000 -e TZ=Europe/Stockholm -v /etc/localtime:/etc/localtime:ro -v /home/rzn/docker/sonarr:/config -v /media/stach/tv:/tv -v /media/stach/down:/downloads linuxserver/sonarr
+
+
+docker run -d \
+    -p 8686:8686 \
+    --name=Lidarr \
+    --restart=always \
+    -v /media:/media \
+    -v /home/rzn/docker/sabnzbd/watched:/data \
+    -v /home/rzn/docker/lidarr:/config \
+    -v /etc/localtime:/etc/localtime:ro \
+    -e UMASK=0000 \
+    -e PUID=1000 \
+    -e PGID=1000 \
+    binhex/arch-lidarr
+    
+    
+docker run -d \
+    -p 8050:8050 \
+    -p 8060:8060 \
+    --name=koel \
+    --restart=always \
+    -v /media:/media \
+    -v /home/rzn/docker/koel/config:/config \
+    -v /etc/localtime:/etc/localtime:ro \
+    -e PHP_MEMORY_LIMIT=4096 \
+    -e FASTCGI_READ_TIMEOUT=22000 \
+    -e UMASK=000 \
+    -e PUID=1000 \
+    -e PGID=1000 \
+    binhex/arch-koel
+    
+    
+docker run -d \
+    --cap-add=NET_ADMIN \
+    -p 9080:9080 \
+    -p 9443:9443 \
+    -p 8118:8118 \
+    -p 3000:3000 \
+    --name=rtorrentvpn \
+    --restart=always \
+    -v /media/stach/down:/data \
+    -v /home/rzn/docker/rtorrent:/config \
+    -v /etc/localtime:/etc/localtime:ro \
+    -e VPN_ENABLED=no \
+    -e VPN_USER=rZnth4r \
+    -e VPN_PASS=ra75secharas \
+    -e VPN_PROV=custom \
+    -e STRICT_PORT_FORWARD=no \
+    -e ENABLE_PRIVOXY=no \
+    -e ENABLE_FLOOD=no \
+    -e ENABLE_AUTODL_IRSSI=yes \
+    -e LAN_NETWORK=10.0.0.0/24 \
+    -e NAME_SERVERS=209.222.18.222,37.235.1.174,8.8.8.8,209.222.18.218,37.235.1.177,8.8.4.4 \
+    -e DEBUG=false \
+    -e PHP_TZ=Europe/Stockholm \
+    -e UMASK=000 \
+    -e PUID=1000 \
+    -e PGID=1000 \
+    binhex/arch-rtorrentvpn
+    
+    docker run -d \
+    -p 4040:4040 \
+    --name=airsonic \
+    --restart=always \
+    -v /media:/media \
+    -v /home/rzn/docker/airsonic:/config \
+    -v /etc/localtime:/etc/localtime:ro \
+    -e CONTEXT_PATH=\ \
+    -e UMASK=000 \
+    -e PUID=1000 \
+    -e PGID=1000 \
+    binhex/arch-airsonic
+    
+    
+    
+ docker run -td -p 3333:80 -p 8043:443
+--stop-signal=SIGPWR -v /media/stach/MUSiK:/music:ro -v /home/rzn/docker/playlist:/playlists:rw -v /home/rzn/docker/ampache:/var/lib/mysql -v /home/rzn/docker/ampache:/var/www/html/ampache/config -v /home/rzn/docker/ampache:/var/www/ampache/config --name=ampache jgoerzen/ampache-mysql
+
+
+docker run -td -p 3333:80 -p 8043:443 --stop-signal=SIGPWR -v /media/stach/MUSiK:/music:rw -v /home/rzn/docker/playlist:/playlists:rw --name=ampache jgoerzen/ampache-mysql
+
+
+
+docker run --name=ampacheIdel -e TIMEZONE="Europe/Stockholm" -d -v /media:/media:ro -p 4444:4444 idelsink/ampache
+
+docker run --name=ampache -e TIMEZONE="Europe/Stockholm" -d -v /media:/media:ro -p 4444:80 -p 33400:32400 -p 9001:9001 idelsink/ampache
+
+
+docker run --name=ampache80 -d -v /media:/media:ro -p 80:80 sleroy/ampache
+
+
+
+docker run -d \
+    -p 4444:4040 \
+    -p 4050:4050 \
+    --name=madsonic \
+    -e CONTEXT_PATH=\ \
+    -e SSL=yes \
+    -v /media/:/media \
+    -v /home/rzn/docker/madsonic:/config \
+    -v /etc/localtime:/etc/localtime:ro \
+    -e UMASK=000 \
+    -e PUID=1000 \
+    -e PGID=1000 \
+    --restart=always \
+    binhex/arch-madsonic
+
+
+
+
+docker create \
+--name=mariadb \
+-p 3306:3306 \
+-e PUID=<UID> \
+-e PGID=<GID> \
+-e MYSQL_ROOT_PASSWORD=<DATABASE PASSWORD> \
+-e TZ=<timezone> \
+-v </path/to/appdata>:/config \
+linuxserver/mariadb
+
+
+docker run --restart=always -d -p 80:80 \
+	--hostname=spotweb \
+	--name=spotweb \
+	-v <hostdir_where_config_will_persistently_be_stored>:/config \
+	-e TZ='Europe/Amsterdam' \
+	-e SPOTWEB_DB_TYPE=pdo_mysql \
+	-e SPOTWEB_DB_HOST=<database_server_hostname> \
+	-e SPOTWEB_DB_NAME=spotweb \
+	-e SPOTWEB_DB_USER=spotweb \
+	-e SPOTWEB_DB_PASS=spotweb \
+	jgeusebroek/spotweb
+
+
+
+docker run --name myadmin -d --link mysql_db_server:db -p 8080:80 phpmyadmin/phpmyadmin
+
+
+
+
+
+docker run -v ./glances.conf:/glances/conf/glances.conf -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host -it docker.io/nicolargo/glances
+
+docker run -d --restart="always" -p 61208-61209:61208-61209 -e GLANCES_OPT="-w" -v /var/run/docker.sock:/var/run/docker.sock:ro --pid host docker.io/nicolargo/glances
+
+
+
+docker run --name=ampache -d -v /path/to/your/music:/media:ro -p 80:80 idelsink/ampache
+
+
+
+
+docker run -d --cap-add SYS_PTRACE \
+           -v /proc:/host/proc:ro \
+           -v /sys:/host/sys:ro \
+           -p 19999:19999 titpetric/netdata
+
+
+
+
+
+
+
+
+
+
+
+
+

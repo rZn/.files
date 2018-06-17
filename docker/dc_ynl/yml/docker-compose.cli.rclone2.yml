@@ -1,0 +1,11 @@
+docker run -d 
+--name="rclone-mount" 
+--net="bridge" 
+-e TZ="America/Chicago" 
+-e HOST_OS="unRAID" 
+-e "RCLONE_REMOTE_MOUNT"="backblaze" 
+-e "RCLONE_MOUNT_OPTIONS"="--read-only" 
+-e "RCLONE_CONFIG_PASS"="" 
+-v "/mnt/user/docker/appdata/rclone":"/config":rw 
+--cap-add SYS_ADMIN --device /dev/fuse --security-opt apparmor:unconfine -v /mnt/disks/backblaze/:/data:shared 
+tynor88/rclone-mount:dev

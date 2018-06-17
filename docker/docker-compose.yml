@@ -1,0 +1,810 @@
+version: "3"
+services:
+   
+  traefik:
+    container_name: traefik
+    image: traefik:alpine
+    command: --api --docker --logLevel=info #Enables the web UI and tells Træfik to listen to docker
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    restart: always
+    depends_on:
+      - sabnzbd
+      - hydra2
+      - sonarr
+      - radarr
+      - couchpotato
+      - airsonic
+      - jackett
+      - influxdb
+      - organizr
+      - portainer
+      - Lidarr
+      - koel
+      - beets
+      - transmission
+      - plexms
+      - ampache
+      - madsonic-beta
+      - mariadb
+      - spotweb
+      - myadmin
+      - glances
+      - nextcloud
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /home/rzn/docker/traefik:/etc/traefik
+      - /home/rzn/docker/traefik/acme.json:/acme.json
+      
+#    labels:
+#      - "traefik.enable=false"
+
+
+  cms:
+    container_name: 'cms'
+    image: madslundt/cloud-media-scripts
+    restart: always
+    privileged: true
+    devices:
+      - /dev/fuse
+    cap_add:
+      - CAP_MKNOD
+      - CAP_SYS_ADMIN
+    environment:
+      ENCRYPT_MEDIA: 1
+      PUID=1000
+      PGID=1000
+    volumes:
+      - '/media/stach1/srv/cms/unionfs:/local-media'
+      - '/media/stach1/srv/cms/local:/local-decrypt'
+      - '/home/rzn/docker/cms/config:/config'
+      - '/media/stach1/srv/cms/chunks:/chunks'
+      - '/media/stach1/srv/cms/db:/data/db'
+      - '/home/rzn/docker/cms/logs:/log'
+      - '/media/stach1/srv/cms/plexdrive:/cloud-encrypt'
+      - '/media/stach1/srv/cms/rclone:/cloud-decrypt'
+
+     
+#SABnzbd - Usenet (NZB) Downloader
+  sabnzbd:
+    image: linuxserver/sabnzbd
+    container_name: sabnzbd
+    volumes:
+      - /home/rzn/docker/sabnzbd:/config
+      - /media/stach/down/completed:/downloads
+      - /media:/data
+      - /media/stach2/tmp/.laddar:/incomplete-downloads
+      - /home/rzn/docker/certs:/certs
+    ports:
+        - 8088:8080
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=8080"
+      - "traefik.frontend.rule=Host:nzb.rzn.se"
+
+      
+#Radarr - Movie Download and Management
+  radarr:
+    image: linuxserver/radarr
+    container_name: radarr
+    volumes:
+      - /home/rzn/docker/radarr:/config
+      - /media/stach/down/completed:/downloads
+      - /media:/movies
+      - "/etc/localtime:/etc/localtime:ro"
+      - /home/rzn/docker/certs:/certs
+    ports:
+      - 7878:7878
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=7878"
+      - "traefik.frontend.rule=Host:radarr.rzn.se"
+
+      
+#Sonarr - TV Show Download and Management
+  sonarr:
+    image: "linuxserver/sonarr"
+    container_name: "sonarr"
+    volumes:
+      - /home/rzn/docker/sonarr:/config
+      - /media/stach/down/completed:/downloads
+      - /media/stach/down:/data
+      - /media:/tv
+      - "/etc/localtime:/etc/localtime:ro"
+      - /home/rzn/docker/certs:/certs
+    ports:
+        - 8989:8989
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=8989"
+      - "traefik.frontend.rule=Host:sonarr.rzn.se"
+
+
+#NZBHydra - NZB Meta Search
+  hydra2:
+    image: linuxserver/hydra2
+    container_name: hydra2
+    volumes:
+      - /home/rzn/docker/hydra2:/config
+      - /media/stach/down:/downloads
+      - /home/rzn/docker/certs:/certs
+    ports:
+      - 5076:5076
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=5076"
+      - "traefik.frontend.rule=Host:nzbhydra.rzn.se"
+
+
+#Jackett - Torrent Proxy
+  jackett:
+    image: linuxserver/jackett
+    container_name: jackett
+    volumes:
+      - /home/rzn/docker/jackett:/config
+      - /media/stach/down/completed:/downloads
+      - "/etc/localtime:/etc/localtime:ro"
+      - /home/rzn/docker/certs:/certs
+    ports:
+      - "9117:9117"
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=9117"
+      - "traefik.frontend.rule=Host:jackett.rzn.se"
+
+
+  couchpotato:
+    image: linuxserver/couchpotato
+    container_name: couchpotato
+    depends_on:
+      - sabnzbd
+    volumes:
+      - /home/rzn/docker/couchpotato:/config
+      - /media/stach/down/completed:/downloads
+      - /media:/movies
+    ports:
+      - 27022:5050
+    links:
+      - sabnzbd
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=5050"
+      - "traefik.frontend.rule=Host:cp.rzn.se"
+
+          
+  deluge:
+    image: linuxserver/deluge
+    container_name: deluge
+    network_mode: host
+    volumes:
+      - /home/rzn/docker/deluge:/config
+      - /media/stach/down:/downloads
+      - /media:/mnt/storage
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1000
+    labels:
+      - "traefik.enable=true"
+#      - "traefik.port=7878"
+      - "traefik.frontend.rule=Host:deluge.rzn.se"
+
+
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    restart: always
+    ports:
+      - 8086:8086
+    volumes:
+      - /opt/appdata/influxdb:/var/lib/influxdb
+    restart:
+      always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=8086"
+      - "traefik.frontend.rule=Host:influxdb.rzn.se"
+
+      
+  organizr:
+    image: lsiocommunity/organizr
+    container_name: organizr
+    restart: always
+    ports:
+      - 8899:80
+    volumes:
+      - /home/rzn/docker/organizr/config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=80"
+      - "traefik.frontend.rule=Host:org.rzn.se"
+
+
+  portainer:
+    image: portainer/portainer
+    container_name: portainer
+    restart: always
+    ports:
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/portainer:/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=9000"
+      - "traefik.frontend.rule=Host:portainer.rzn.se"
+
+
+   
+  Lidarr:
+    image: binhex/arch-lidarr
+    container_name: Lidarr
+    restart: always
+    ports:
+      - 8686:8686
+    volumes:
+      - /media:/media
+      - /home/rzn/docker/sabnzbd/watched:/data
+      - /media/stach/down/completed:/downloads
+      - /home/rzn/docker/lidarr:/config
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - UMASK=0000
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=8686"
+      - "traefik.frontend.rule=Host:lidarr.rzn.se"
+
+   
+
+  koel:
+    image: binhex/arch-koel
+    container_name: koel
+    restart: always
+    ports:
+      - 8050:8050 
+      - 8060:8060
+    volumes:
+      - /media:/media
+      - /home/rzn/docker/koel/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+      - PHP_MEMORY_LIMIT=4096
+      - FASTCGI_READ_TIMEOUT=22000
+      - UMASK=000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=8050"
+      - "traefik.frontend.rule=Host:koel.rzn.se"
+
+      
+  airsonic:
+    image: binhex/arch-airsonic
+    container_name: airsonic
+    restart: always
+    ports:
+      - 4040:4040
+    volumes:
+      - /media:/media
+      - /home/rzn/docker/airsonic:/config
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+      - CONTEXT_PATH=/
+      - UMASK=000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=4040"
+      - "traefik.frontend.rule=Host:air.rzn.se"
+
+      
+  beets:
+    image: linuxserver/beets
+    container_name: beets
+    restart: always
+    ports:
+      - 8337:8337
+    volumes:
+      - /home/rzn/docker/beets:/config
+      - /media:/music
+      - /media/stach/down:/downloads
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=8337"
+      - "traefik.frontend.rule=Host:beets.rzn.se"
+      
+      
+  transmission:
+    image: linuxserver/transmission
+    container_name: transmission
+    restart: always
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    volumes:
+      - /home/rzn/docker/transmission:/config
+      - /media/stach/down:/downloads
+      - /home/rzn/docker/transmission/watch:/watch
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=9091"
+      - "traefik.frontend.rule=Host:tt.rzn.se"
+
+      
+  whoami:
+    image: emilevauge/whoami #A container that exposes an API to show it's IP address
+    labels:
+      - "traefik.frontend.rule=Host:whoami.rzn.se"
+      
+  
+  #Media Server - Plex
+  plexms:
+    container_name: plexms
+    restart: always
+    image: plexinc/pms-docker:beta
+    volumes:
+      - /home/rzn/docker/plexms:/config
+      - /media/red/plex_tmp:/transcode
+      - /media:/media
+      - /home/rzn/docker/certs:/certs
+    network_mode: host
+    environment:
+      - TZ=Europe/Stockholm
+      - PLEX_CLAIM="claim-QSQZXAHVWXBQBXYAJYGR"
+      - PLEX_UID=${PUID}
+      - PLEX_GID=${PGID}
+      - ADVERTISE_IP="http://rzn.se:32400/"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=32400"
+      - "traefik.frontend.rule=Host:plex.rzn.se"
+
+
+  ampache:
+    image: jgoerzen/ampache:latest
+    container_name: ampache
+    restart: always
+    ports:
+      - 2222:80
+      - 4343:443 
+    volumes:
+      - /media:/music:rw
+      - /home/rzn/docker/ampache/playlist:/playlists:rw
+      - /home/rzn/docker/ampache/config:/var/www/html/ampache/config:rw
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+      - stop-signal=SIGPWR
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=80"
+      - "traefik.frontend.rule=Host:ampache.rzn.se"
+
+
+  madsonic-beta:
+    image: binhex/arch-madsonic
+    container_name: madsonic-beta
+    restart: always
+    ports:
+      - 3030:4040
+      - 3050:4050
+    volumes:
+      - /media/:/media
+      - /home/rzn/docker/madsonic-beta:/config
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - CONTEXT_PATH=\
+      - SSL=no
+      - PUID=1000
+      - PGID=1000
+      - UMASK=000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=4040"
+      - "traefik.frontend.rule=Host:ms.rzn.se"
+
+
+  mariadb:
+    image: linuxserver/mariadb
+    container_name: mariadb
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - /home/rzn/docker/mariadb:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+      - MYSQL_ROOT_PASSWORD=ra75se
+      - MARIADB_MAX_ALLOWED_PACKET=128M
+      - MARIADB_INNODB_LOG_FILE_SIZE=64M
+      - MARIADB_INNODB_LARGE_PREFIX=ON
+      - MARIADB_INNODB_FILE_FORMAT=Barracuda
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=3306"
+      - "traefik.frontend.rule=Host:db.rzn.se"
+
+
+  spotweb:
+    image: jgeusebroek/spotweb
+    container_name: spotweb
+    restart: always
+    ports:
+      - 2211:80
+    volumes:
+      - /home/rzn/docker/spotweb:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+      - SPOTWEB_DB_TYPE=pdo_mysql
+      - SPOTWEB_DB_HOST=10.0.0.10
+      - SPOTWEB_DB_NAME=spotweb
+      - SPOTWEB_DB_USER=spotweb
+      - SPOTWEB_DB_PASS=charas
+#      - SPOTWEB_CRON_RETRIEVE="* /15 * * * *"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=80"
+      - "traefik.frontend.entrypoint=http"
+      - "traefik.frontend.passHostHeader=true"
+      - "traefik.frontend.rule=Host:spot.rzn.se"
+
+
+  myadmin:
+     image: phpmyadmin/phpmyadmin
+     container_name: myadmin
+     restart: always
+     ports:
+       - 3434:80
+     volumes:
+       - /sessions
+     environment:
+       - PUID=1000
+       - PGID=1000
+       - TZ=Europe/Stockholm
+       - PMA_ARBITRARY=1
+     labels:
+       - "traefik.enable=true"
+       - "traefik.port=80"
+       - "traefik.frontend.rule=Host:myadmin.rzn.se"
+
+       
+  glances:
+    image: docker.io/nicolargo/glances
+    container_name: glances
+    restart: always
+    ports:
+      - 61208:61208
+      - 61209:61209
+    volumes:
+#      - /home/rzn/docker/glances/glances.conf:/glances/conf/glances.conf
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+      - GLANCES_OPT=-w
+    pid: host
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=61208"
+      - "traefik.frontend.rule=Host:gl.rzn.se"     
+      
+      
+      
+  minecraft-server:
+    ports:
+      - "23456:25565"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+      - EULA=TRUE
+    image: itzg/minecraft-server
+    container_name: mc
+    tty: true
+    stdin_open: true
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=25565"
+      - "traefik.frontend.rule=Host:mc.rzn.se"
+
+
+  minecraft-server2:
+    ports:
+      - "12345:25565"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    volumes:
+      - /home/rzn/docker/minecraft:/data
+    image: kitematic/minecraft
+    container_name: kmc
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=25565"
+      - "traefik.frontend.rule=Host:kmc.rzn.se"
+
+
+  mcmyadmin:
+    ports:
+      - "8008:8080"
+      - "25565:25565"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    volumes:
+      - /home/rzn/docker/MYminecraft:/minecraft
+    image: linuxserver/mcmyadmin2
+    container_name: mcmyadmin
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=8080"
+      - "traefik.frontend.rule=Host:mcadmin.rzn.se"
+      
+  
+  
+  tautulli:
+    image: tautulli/tautulli
+    container_name: tautulli
+    restart: always
+    ports:
+      - 8181:8181
+    volumes:
+      - /home/rzn/docker/tautulli:/config
+      - /home/rzn/docker/plexms/Library/Application Support/Plex Media Server/Logs:/logs:ro
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=8181"
+      - "traefik.frontend.rule=Host:tautulli.rzn.se"
+      
+
+      
+  monitorr:
+    image: monitorr/monitorr
+    container_name: monitorr
+    restart: always
+    ports: 
+      - 8011:80
+    volumes:
+      - /home/rzn/docker/monitorr:/app
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=80"
+      - "traefik.frontend.rule=Host:monitorr.rzn.se"
+      
+      
+  logarr:
+    image: monitorr/logarr
+    container_name: logarr
+    restart: always
+    ports:
+      - 8022:80
+    volumes:
+      - /home/rzn/docker/logarr:/config
+      - /home/rzn/docker:/var/log/logarrlogs
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=80"
+      - "traefik.frontend.rule=Host:logarr.rzn.se"
+      
+  logarr_alpha:
+    image: monitorr/logarr-alpha
+    container_name: logarr_alpha
+    restart: always
+    ports:
+      - 8033:80
+    volumes:
+      - /home/rzn/docker/logarr_alpha:/config
+      - /home/rzn/docker:/var/log/logarrlogs
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=80"
+      - "traefik.frontend.rule=Host:logarra.rzn.se"
+      
+      
+  organizrV2:
+    image: tronyx/docker-organizr-v2
+    container_name: organizrV2
+    restart: always
+    ports:
+      - 8044:80
+    volumes:
+      - /home/rzn/docker/organizr2/config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=80"
+      - "traefik.frontend.rule=Host:orgv2.rzn.se"
+      
+      
+  netdata:
+    image: titpetric/netdata
+    container_name: netdata
+    restart: always
+    ports:
+      - 19999:19999
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+    cap_add:
+      - SYS_PTRACE
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=19999"
+      - "traefik.frontend.rule=Host:netdata.rzn.se"  
+      
+      
+  monitorrd:
+    image: monitorr/monitorr:develop
+    container_name: monitorrd
+    restart: always
+    ports: 
+      - 8012:80
+    volumes:
+      - /home/rzn/docker/monitorrd:/app
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=80"
+      - "traefik.frontend.rule=Host:monitorrd.rzn.se"
+      
+      
+  duplicati:
+    image: linuxserver/duplicati
+    container_name: duplicati
+    restart: always
+    volumes:
+      - /home/rzn/docker/duplicati:/config
+      - /media/stach1/duplicati:/backups
+      - /:/source
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=Europe/Stockholm
+    ports:
+      - 8200:8200
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=8200"
+      - "traefik.frontend.rule=Host:bakis.rzn.se"
+      
+      
+  nextcloud:
+    image: linuxserver/nextcloud
+    container_name: nextcloud
+    restart: always
+    depends_on:
+      - mariadb
+    links:
+      - mariadb
+    ports:
+      - 4443:443
+    volumes:
+      - /home/rzn/docker/nextcloud:/config
+      - /media/stach1/srv/nextcloud:/data
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=443"
+      - "traefik.frontend.rule=Host:moln.rzn.se"
+      
+  mycloud:
+    image: nextcloud
+    container_name: mycloud
+    restart: always
+    depends_on:
+      - mariadb
+    links:
+    - mariadb
+    ports:
+      - 5678:80
+#      - 4443:443
+    volumes:
+      - /home/rzn/docker/mycloud:/var/www/html
+#      - /home/rzn/docker/nextcloud/apps:/var/www/html/custom_apps
+      - /home/rzn/docker/mytcloud/config:/var/www/html/config
+      - /media/stach1/srv/mycloud/data:/var/www/html/data
+      - /home/rzn/docker/mycloud/themes:/var/www/html/themes
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=80"
+      - "traefik.frontend.rule=Host:molnet.rzn.se"
+      
+      
+  

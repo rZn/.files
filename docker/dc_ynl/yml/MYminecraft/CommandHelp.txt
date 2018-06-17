@@ -1,0 +1,43 @@
+﻿accept::Accept another users 'join' or 'request' command.
+addmember:(group) (user):Add a user to a specified group. Case sensitive!
+backupworld:[label]:Take a backup of the world with an optional label.
+ban:(user):Ban a user by their username.
+ban-ip:(ip):Ban a particular IP address.
+day::Set the server time to just after sunrise.
+creative:[user]:Switch a given user to creative mode (or yourself if no user is specified)
+decline::Decline another users 'join' or 'request' command.
+delmember:(group) (user):Remove a user from a specified group. Case sensitive!
+delplayerdata:(user):Removes a players data file from the world, erasing their home position and inventory.
+deop:[user]:Remove a users operator status, or yourself if no name is given.
+give:(user) (item id) [quantity]:Give a named user an item.
+giveme:(item id/name) [quantity/multiplier]:Give yourself an item by name.
+giveto:(user) (item id/name) [quantity/multiplier]:Give someone else an item by name.
+goto:(user):Teleport yourself to a named user.
+help:[command]:Get a list of commands or help on a specific command.
+invite:(user):Invite a user to join you.
+join:(user):Request to join a user.
+kick:(user):Kick a user off the server (they can rejoin).
+lastseen:(user):Check when a user was last seen online.
+listplayers::Show a list of active players (Llama Mod)
+lookup:(item name):Look up the item number code by an approximate name.
+motd::Show the current message of the day.
+night::Set the server time to just after sunset.
+op:(user):Give a user operator status.
+opme::Give yourself operator status.
+pardon:(user):Remove a ban on a username.
+pardon-ip:(ip):Remove a ban on an IP address.
+ping::Check if the server is still alive.
+players::Get a list of active players.
+restart::Restart the minecraft server.
+save-all::Save the current state of the server.
+save-off::Disable level saving.
+save-on::Enable level saving.
+serverstats::Show server information.
+survival:[user]:Switch a given user to survival mode (or yourself if no user is specified)
+stop::Stop the minecraft server.
+summon:(user):Teleport another user to your location.
+time::Get the current server time.
+tp:(user) (user):Teleport the first user to the second user.
+userstats:(user):Show historical data for a given user.
+serverversion::Get information about the server.
+whois:(user):Show a users WHOIS information.

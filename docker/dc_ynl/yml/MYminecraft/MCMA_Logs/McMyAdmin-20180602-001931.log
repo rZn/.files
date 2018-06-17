@@ -1,0 +1,51 @@
+Notice	: Detecting System...
+Notice	: No virtualized environment detected.
+Notice	: Linux Distribution: Ubuntu
+Notice	: Detection complete.
+Warning : Unable to detect java version! Java may not be installed or may be outdated.
+Error	: McMyAdmin was not shut down properly!
+Error	: To avoid potential data loss, please perform /quit on this console.
+Error	: Startup will resume in 5 seconds...
+Notice	: Starting McMyAdmin Personal v2.7.0.2
+Notice	: Checking for updates...
+Notice	: Checking for Minecraft Server updates...
+Notice	: Starting webserver...
+Notice	: McMyAdmin has started and is ready for use.
+Notice	: Server jar hash is d38e7271-d0fb-d1ac-394b-f3ade2649a5c
+Notice	: Starting Minecraft Server...
+Console	: [00:20:08] [Server thread/INFO]: Starting minecraft server version 1.12.2
+Console	: [00:20:08] [Server thread/INFO]: Loading properties
+Console	: [00:20:08] [Server thread/INFO]: Default game type: SURVIVAL
+Console	: [00:20:08] [Server thread/INFO]: Generating keypair
+Console	: [00:20:09] [Server thread/INFO]: Starting Minecraft server on *:25565
+Console	: [00:20:09] [Server thread/INFO]: Using epoll channel type
+Console	: [00:20:10] [Server thread/INFO]: Preparing level "world"
+Console	: [00:20:13] [Server thread/INFO]: Loaded 488 advancements
+Console	: [00:20:13] [Server thread/INFO]: Preparing start region for level 0
+Console	: [00:20:17] [Server thread/INFO]: Preparing spawn area: 0%
+Console	: [00:20:18] [Server thread/INFO]: Preparing spawn area: 2%
+Console	: [00:20:19] [Server thread/INFO]: Preparing spawn area: 6%
+Console	: [00:20:21] [Server thread/INFO]: Preparing spawn area: 18%
+Console	: [00:20:22] [Server thread/INFO]: Preparing spawn area: 30%
+Console	: [00:20:23] [Server thread/INFO]: Preparing spawn area: 45%
+Console	: [00:20:24] [Server thread/INFO]: Preparing spawn area: 60%
+Console	: [00:20:25] [Server thread/INFO]: Preparing spawn area: 73%
+Console	: [00:20:25] [Server thread/INFO]: Done (15.354s)! For help, type "help" or "?"
+Console	: [00:20:29] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2642ms behind, skipping 52 tick(s)
+Console	: [00:26:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [00:26:00] [Server thread/INFO]: 
+Console	: [00:30:00] [Server thread/INFO]: [Server] This server is running McMyAdmin Personal v2.7.0.2
+Console	: [00:30:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [00:30:00] [Server thread/INFO]: Saving...
+Console	: [00:30:00] [Server thread/INFO]: Saved the world
+Console	: [00:30:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [00:36:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [00:36:00] [Server thread/INFO]: 
+Console	: [00:42:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [00:42:00] [Server thread/INFO]: 
+Console	: [00:45:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [00:45:00] [Server thread/INFO]: Saving...
+Console	: [00:45:00] [Server thread/INFO]: Saved the world
+Console	: [00:45:00] [Server thread/INFO]: [Server] Save Complete
+Console	: [00:51:00] [Server thread/INFO]: There are 0/10 players online:
+Console	: [00:51:00] [Server thread/INFO]: 

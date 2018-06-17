@@ -1,0 +1,36 @@
+defaults:
+    token: 5ec9484f11ade0710c022f505c8fb9b4303ba
+    email: rzn@rzn.se
+    domain: rzn.se
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#    account: th4r
+#    th4r:
+#        token: 5ec9484f11ade0710c022f505c8fb9b4303ba
+#        email: rzn@rzn.se
+#        domain: th4r.se
+#defaults:
+#    account: work
+#accounts:
+#    work:
+#        token: <cloudflare-token>
+#        email: <you@domain.com>
+#        domain: <default-cloudflare-domain>
+#    play:
+#        token: <cloudflare-token>
+#        email: <you@domain.com>
+#        domain: <default-cloudflare-domain>      

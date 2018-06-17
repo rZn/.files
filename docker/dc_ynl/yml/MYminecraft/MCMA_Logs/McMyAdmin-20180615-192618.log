@@ -1,0 +1,40 @@
+Notice	: Detecting System...
+Notice	: No virtualized environment detected.
+Notice	: Linux Distribution: Ubuntu
+Notice	: Detection complete.
+Warning : Unable to detect java version! Java may not be installed or may be outdated.
+Error	: McMyAdmin was not shut down properly!
+Error	: To avoid potential data loss, please perform /quit on this console.
+Error	: Startup will resume in 5 seconds...
+Notice	: Starting McMyAdmin Personal v2.7.0.2
+Notice	: Checking for updates...
+Notice	: Checking for Minecraft Server updates...
+Notice	: Starting webserver...
+Notice	: McMyAdmin has started and is ready for use.
+Notice	: Server jar hash is d38e7271-d0fb-d1ac-394b-f3ade2649a5c
+Notice	: Starting Minecraft Server...
+Console	: [19:26:55] [Server thread/INFO]: Starting minecraft server version 1.12.2
+Console	: [19:26:55] [Server thread/INFO]: Loading properties
+Console	: [19:26:56] [Server thread/INFO]: Default game type: SURVIVAL
+Console	: [19:26:56] [Server thread/INFO]: Generating keypair
+Console	: [19:26:56] [Server thread/INFO]: Starting Minecraft server on *:25565
+Console	: [19:26:57] [Server thread/INFO]: Using epoll channel type
+Console	: [19:26:58] [Server thread/INFO]: Preparing level "world"
+Console	: [19:27:00] [Server thread/INFO]: Loaded 488 advancements
+Console	: [19:27:01] [Server thread/INFO]: Preparing start region for level 0
+Console	: [19:27:03] [Server thread/INFO]: Preparing spawn area: 0%
+Console	: [19:27:05] [Server thread/INFO]: Preparing spawn area: 3%
+Console	: [19:27:06] [Server thread/INFO]: Preparing spawn area: 8%
+Console	: [19:27:07] [Server thread/INFO]: Preparing spawn area: 21%
+Console	: [19:27:08] [Server thread/INFO]: Preparing spawn area: 31%
+Console	: [19:27:08] [Server thread/WARN]: Keeping entity minecraft:skeleton that already exists with UUID a0d8fab1-8d9a-4e93-8810-a9b8dcec051b
+Console	: [19:27:09] [Server thread/INFO]: Preparing spawn area: 48%
+Console	: [19:27:10] [Server thread/INFO]: Preparing spawn area: 67%
+Console	: [19:27:10] [Server thread/WARN]: Keeping entity minecraft:wolf that already exists with UUID 0c0051a8-17ba-4dac-a7cd-da9eb1a0208d
+Console	: [19:27:11] [Server thread/INFO]: Done (13.010s)! For help, type "help" or "?"
+Console	: [19:27:14] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2423ms behind, skipping 48 tick(s)
+Console	: [19:30:00] [Server thread/INFO]: [Server] This server is running McMyAdmin Personal v2.7.0.2
+Console	: [19:30:00] [Server thread/INFO]: [Server] Saving world data. Expect lag for a short while.
+Console	: [19:30:00] [Server thread/INFO]: Saving...
+Console	: [19:30:00] [Server thread/INFO]: Saved the world
+Console	: [19:30:00] [Server thread/INFO]: [Server] Save Complete

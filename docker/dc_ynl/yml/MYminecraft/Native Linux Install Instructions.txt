@@ -1,0 +1,10 @@
+If you haven't already, download:
+
+http://mcmyadmin.com/downloads/MCMA2_glibc25.zip
+http://mcmyadmin.com/downloads/etc.zip
+
+Move etc.zip into your /usr/local/ directory and unzip it.
+
+Extract the contents of MCMA2_glibc25.zip in the same place as the main McMyAdmin 2 archive
+
+Run MCMA2_Linux_x86_64

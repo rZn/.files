@@ -1,0 +1,20 @@
+2018/06/03 11:44:56 [error] 327#327: *1 FastCGI sent in stderr: "PHP message: PHP Warning:  filemtime(): stat failed for /var/log/logarrlogs/docker/traefik/log/traefik.log in /config/www/logarr/index.php on line 216
+PHP message: PHP Warning:  filemtime(): stat failed for /var/log/logarrlogs/docker/traefik/log/traefik.log in /config/www/logarr/index.php on line 216
+PHP message: PHP Warning:  filesize(): stat failed for /var/log/logarrlogs/docker/traefik/log/traefik.log in /config/www/logarr/index.php on line 225" while reading upstream, client: 66.102.9.14, server: _, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "rzn.se:8022"
+2018/06/03 11:44:56 [error] 327#327: *1 FastCGI sent in stderr: "PHP message: PHP Warning:  file(/var/log/logarrlogs/docker/traefik/log/traefik.log): failed to open stream: No such file or directory in /config/www/logarr/index.php on line 126
+PHP message: PHP Warning:  array_reverse() expects parameter 1 to be array, boolean gi" while reading upstream, client: 66.102.9.14, server: _, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "rzn.se:8022"
+2018/06/03 11:44:56 [error] 327#327: *1 FastCGI sent in stderr: "ven in /config/www/logarr/index.php on line 127
+PHP message: PHP Warning:  Invalid argument supplied for foreach() in /config/www/logarr/index.php on line 130" while reading upstream, client: 66.102.9.14, server: _, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "rzn.se:8022"
+2018/06/05 15:48:49 [error] 279#279: *1 FastCGI sent in stderr: "PHP message: PHP Warning:  filemtime(): stat failed for /var/log/logarrlogs/docker/traefik/log/traefik.log in /config/www/logarr/index.php on line 216
+PHP message: PHP Warning:  filemtime(): stat failed for /var/log/logarrlogs/docker/traefik/log/traefik.lo" while reading upstream, client: 172.18.0.32, server: _, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "logarr.rzn.se"
+2018/06/05 15:48:49 [error] 279#279: *1 FastCGI sent in stderr: "g in /config/www/logarr/index.php on line 216
+PHP message: PHP Warning:  filesize(): stat failed for /var/log/logarrlogs/docker/traefik/log/traefik.log in /config/www/logarr/index.php on line 225
+PHP message: PHP Warning:  file(/var/log/logarrlogs/docker/traefik/log/traefik.log): failed to open stream: No such file or directory in /config/www/logarr/index.php on line 126
+PHP message: PHP Warning:  array_reverse() expects parameter 1 to be array, boolean given in /config/www/logarr/index.php on line 127
+PHP message: PHP Warning:  Invalid argument supplied for foreach() in /config/www/logarr/index.php on line 130" while reading upstream, client: 172.18.0.32, server: _, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "logarr.rzn.se"
+2018/06/05 15:49:34 [error] 280#280: *4 FastCGI sent in stderr: "PHP message: PHP Warning:  filemtime(): stat failed for /var/log/logarrlogs/docker/traefik/log/traefik.log in /config/www/logarr/index.php on line 216
+PHP message: PHP Warning:  filemtime(): stat failed for /var/log/logarrlogs/docker/traefik/log/traefik.log in /config/www/logarr/index.php on line 216
+PHP message: PHP Warning:  filesize(): stat failed for /var/log/logarrlogs/docker/traefik/log/traefik.log in /config/www/logarr/index.php on line 225
+PHP message: PHP Warning:  file(/var/log/logarrlogs/docker/traefik/log/traefik.log): failed to open stream: No such file or directory in /config/www/logarr/index.php on line 126
+PHP message: PHP Warning:  array_reverse() expects parameter 1 to be array, boolean given in /config/www/logarr/index.php on line 127
+PHP message: PHP Warning:  Invalid argument supplied for foreach() in /config/www/logarr/index.php on line 130" while reading upstream, client: 172.18.0.32, server: _, request: "GET / HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "logarr.rzn.se"

@@ -1,0 +1,29 @@
+
+
+name:
+    image: 
+    container_name: 
+    restart: always
+    ports:
+      - 
+    volumes:
+      - 
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=2222"
+      - "traefik.frontend.rule=Host:rzn.rzn.se"
+      
+   
+   
+   
+   
+      networks:
+      - web
+      - default
+      
+    cap_add:
+      - NET_ADMIN
